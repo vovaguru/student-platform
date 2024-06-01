@@ -24,8 +24,8 @@ const InternalStudent = () => {
 
   return (
     <main className="internal">
-      <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-violet-950 underline decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
-        Internal Mark
+      <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
+        Моя успеваемость
       </h2>
       <div>{error ? <ErrorStrip error={error} /> : ""}</div>
       {internal.length ? (
@@ -34,27 +34,19 @@ const InternalStudent = () => {
             <TableHeader
               AdditionalHeaderClasses={"first:text-left"}
               Headers={[
-                "Paper",
-                "Test",
-                "Seminar",
-                "Assignment",
-                "Attendance",
-                "Total",
+                "Дисциплина",
+                "Итог за лекции",
+                "Итог за семинары",
+                "Итог за контрольные",
+                "Итог за посещаемость",
+                "Общая оценка",
               ]}
             />
             <tbody className="text-left">
               {internal?.map((paper, index) => (
                 <tr
                   key={index}
-                  className={
-                    parseInt(paper?.marks.test) +
-                      parseInt(paper?.marks.seminar) +
-                      parseInt(paper?.marks.assignment) +
-                      parseInt(paper?.marks.attendance) >
-                    7
-                      ? "border-t-[1px] border-violet-500 bg-violet-900/50 first:border-none"
-                      : "border-t-[1px] border-violet-500 first:border-none"
-                  }
+                  className="border-t-[1px] border-violet-500 first:border-none"
                 >
                   <td className="p-2 text-left">{paper.paper.paper}</td>
                   <td className="p-2 text-center">{paper.marks.test}</td>
@@ -62,10 +54,10 @@ const InternalStudent = () => {
                   <td className="p-2 text-center">{paper.marks.assignment}</td>
                   <td className="p-2 text-center">{paper.marks.attendance}</td>
                   <td className="p-2 text-center">
-                    {paper.marks.test +
+                    {(paper.marks.test +
                       paper.marks.seminar +
                       paper.marks.assignment +
-                      paper.marks.attendance}
+                      paper.marks.attendance) / 4}
                   </td>
                 </tr>
               ))}

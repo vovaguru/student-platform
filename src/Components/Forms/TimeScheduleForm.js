@@ -7,6 +7,15 @@ import { TableHeader } from "../Table";
 import Loading from "../Layouts/Loading";
 import ErrorStrip from "../ErrorStrip";
 
+const keys = {
+  "monday": "Понедельник",
+  "tuesday": "Вторник",
+  "wednesday": "Cреда",
+  "thursday": "Четверг",
+  "friday": "Пятница",
+};
+
+
 const TimeScheduleForm = () => {
   const { user, paperList } = useContext(UserContext);
   const [timeSchedule, setTimeSchedule] = useState({});
@@ -97,8 +106,8 @@ const TimeScheduleForm = () => {
 
   return (
     <main className="time_schedule">
-      <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-violet-950 underline decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
-        Time Schedule
+      <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
+        Расписание
       </h2>
       <form>
         {timeSchedule.monday ? (
@@ -106,14 +115,14 @@ const TimeScheduleForm = () => {
             <table className=" w-full text-center">
               <TableHeader
                 AdditionalHeaderClasses={"h-[3rem]"}
-                Headers={["Day/Hour", "I", "II", "III", "IV", "V"]}
+                Headers={["День/Час", "I", "II", "III", "IV", "V"]}
               />
               <tbody>
                 {Object.entries(timeSchedule)?.map(([key, value]) => {
                   return (
                     <tr key={key}>
                       <th className="border-none bg-slate-900 px-4 py-4 text-base capitalize text-slate-100">
-                        {key}
+                        {keys[key]}
                       </th>
                       {value.map((day, index) => (
                         <td
@@ -155,14 +164,14 @@ const TimeScheduleForm = () => {
               className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-slate-900"
               onClick={() => setDisabled(false)}
             >
-              <FaEdit /> Edit
+              <FaEdit /> Редактировать
             </button>
             <button
               type="submit"
               className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-red-700 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-red-700"
               onClick={(e) => deleteTimeSchedule(e)}
             >
-              <FaTrash /> Delete
+              <FaTrash /> Удалить
             </button>
           </div>
         )}
@@ -172,7 +181,7 @@ const TimeScheduleForm = () => {
             className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-slate-900"
             onClick={(e) => addTimeSchedule(e)}
           >
-            <FaPlus /> Save
+            <FaPlus /> Сохранить
           </button>
         )}
       </form>

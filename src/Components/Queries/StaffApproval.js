@@ -59,18 +59,18 @@ const StaffApproval = () => {
     <>
       {user.role === "HOD" ? (
         <main className="staff__approval">
-          <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-violet-950 underline decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
-            Approve Staff
+          <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
+            Подтвердить нового преподавателя
           </h2>
           <h3 className="text-2xl font-semibold">
-            Department: {user.department}
+            Отдел: {user.department}
           </h3>
           <form>
             {newStaffs.length ? (
               <div className="my-4 w-full overflow-auto rounded-md border-2 border-slate-900 dark:border-slate-500 dark:p-[1px]  ">
                 <table className="w-full">
                   <TableHeader
-                    Headers={["Name", "Email", "Username", "Approve", "Reject"]}
+                    Headers={["Имя", "Email", "Логин", "Подтвердить", "Отклонить"]}
                     AdditionalRowClasses={"text-left"}
                     AdditionalHeaderClasses={"last:text-center secondLast"}
                   />

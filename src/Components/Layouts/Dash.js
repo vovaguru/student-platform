@@ -23,58 +23,58 @@ const Dash = () => {
 
   return (
     <main className="self-center">
-      <h2 className="m-6 font-spectral mx-auto text-center text-6xl font-bold dark:text-slate-400">
-        Kollege
-      </h2>
+      {/* <h2 className="m-6 font-spectral mx-auto text-center text-6xl font-bold dark:text-slate-400">
+        Цифровой профиль студента
+      </h2> */}
       <div className="grid grid-cols-1 place-content-center gap-3 px-1 py-4 lg:grid-cols-2 lg:gap-4 lg:px-8 xl:grid-cols-3">
         <Link
-          className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+          className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
           to={"./paper"}
         >
           <GiBookshelf className="text-[2.5rem] lg:text-[4rem] " />
           <div className="font-semibold">
-            Papers
+            Материалы
             <p className="text-sm font-normal lg:text-base ">
-              View Papers and Notes
+              Просмотреть материалы и заметки
             </p>
           </div>
         </Link>
 
         <Link
-          className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+          className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
           to={"./attendance"}
         >
           <IoCalendarOutline className="text-[2.5rem] lg:text-[4rem] " />
           <div className="font-semibold">
-            Attendance
+            Посещаемость
             <p className="text-sm font-normal lg:text-base ">
-              Add or Edit Attendance
+              Отметить или редактировать посещаемость
             </p>
           </div>
         </Link>
 
         <Link
-          className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+          className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
           to={"./internal"}
         >
           <HiOutlineDocumentReport className="text-[2.5rem] lg:text-[4rem] " />
           <div className="font-semibold">
-            Internal Mark
+            Оценки
             <p className="text-sm font-normal lg:text-base ">
-              View or Edit Internal Marks
+              Просмотреть оценки
             </p>
           </div>
         </Link>
 
         <Link
-          className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+          className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
           to={"./time_schedule"}
         >
           <AiOutlineSchedule className="text-[2.5rem] lg:text-[4rem] " />
           <div className="font-semibold">
-            Time Schedule
+            Расписание
             <p className="text-sm font-normal lg:text-base ">
-              View or Edit Time Schedule
+              Просмотреть расписание
             </p>
           </div>
         </Link>
@@ -82,27 +82,27 @@ const Dash = () => {
         {user.role === "HOD" && (
           <>
             <Link
-              className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+              className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
               to={"./add_paper"}
             >
               <BiBookAdd className="text-[2.5rem] lg:text-[4rem] " />
               <div className="font-semibold">
-                Add Paper
+                Добавить материал
                 <p className="text-sm font-normal lg:text-base ">
-                  Add a New Paper
+                  Добавить новый материал
                 </p>
               </div>
             </Link>
 
             <Link
-              className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+              className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
               to={"./approve_staff"}
             >
               <RiUserAddLine className="text-[2.5rem] lg:text-[4rem] " />
               <div className="font-semibold">
-                Approve Staff
+                Подтвердить сотрудников
                 <p className="text-sm font-normal lg:text-base ">
-                  Approve registered staff(s)
+                  Подтвердить зарегестрированных сотрудников
                 </p>
               </div>
             </Link>
@@ -110,20 +110,20 @@ const Dash = () => {
         )}
         {user.role === "student" && (
           <Link
-            className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+            className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
             to={"./join_paper"}
           >
             <PiBooks className="text-[2.5rem] lg:text-[4rem] " />
             <div className="font-semibold">
-              Manage Paper
+              Управление занятиями
               <p className="text-sm font-normal lg:text-base ">
-                Join or Leave Paper
+                Зарегистрироваться или выйти с занятия
               </p>
             </div>
           </Link>
         )}
         <Link
-          className="flex gap-2 rounded-lg bg-violet-300 p-6 text-base hover:bg-violet-400/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
+          className="flex gap-2 rounded-lg bg-primary text-white p-6 text-base hover:bg-primary/90 dark:bg-violet-950/80 dark:hover:bg-violet-950 dark:hover:text-slate-300 duration-200 lg:text-lg"
           to={"./profile"}
         >
           {user.role === "student" ? (
@@ -132,9 +132,9 @@ const Dash = () => {
             <PiUser className="text-[2.5rem] lg:text-[4rem] " />
           )}
           <div className="font-semibold">
-            Profile
+            Профиль
             <p className="text-sm font-normal lg:text-base ">
-              View or Edit Profile
+              Просмотреть профиль
             </p>
           </div>
         </Link>

@@ -57,15 +57,15 @@ const NotesForm = () => {
 
   return (
     <main className="notes">
-      <h2 className="mb-2 mt-3 text-6xl font-bold text-violet-950 underline decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400">
+      <h2 className="mb-2 mt-3 text-6xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400">
         {paper?.paper}
       </h2>
       <h3 className="text-2xl font-medium">
-        {noteId !== undefined ? "Edit Note" : "Add New Note"}
+        {noteId !== undefined ? "Редактировать материал" : "Добавить новый материал"}
       </h3>
       <form>
         <label htmlFor="title" className="block text-lg font-medium">
-          Title:
+          Заголовок:
         </label>
         <input
           className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -76,7 +76,7 @@ const NotesForm = () => {
           onChange={(e) => handleFormChange(e)}
         />
         <label htmlFor="body" className="block text-lg font-medium">
-          Body:
+          Содержание:
         </label>
         <textarea
           className="mb-4 block w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -94,7 +94,7 @@ const NotesForm = () => {
             onClick={(e) => updateNote(e)}
           >
             <RxUpdate />
-            Update Note
+            Обновить материал
           </button>
         ) : (
           <button
@@ -103,7 +103,7 @@ const NotesForm = () => {
             onClick={(e) => addNote(e)}
           >
             <FaPlus />
-            Add Note
+            Добавить материал
           </button>
         )}
       </form>

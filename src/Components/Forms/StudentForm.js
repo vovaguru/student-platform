@@ -37,7 +37,7 @@ const StudentForm = () => {
   return (
     <form className="scrollWidth w-full animate-fadeIn font-medium tracking-wide accent-violet-600">
       <label className="block" htmlFor="name">
-        Name:
+        Ф.И.О.:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -59,7 +59,7 @@ const StudentForm = () => {
         onChange={(e) => handleFormChange(e)}
       />
       <label className="block" htmlFor="course">
-        Course:
+        Группа:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -70,7 +70,7 @@ const StudentForm = () => {
         onChange={(e) => handleFormChange(e)}
       />
       <label className="block" htmlFor="username">
-        Username:
+        Логин:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -81,7 +81,7 @@ const StudentForm = () => {
         onChange={(e) => handleFormChange(e)}
       />
       <label className="block" htmlFor="password">
-        Password:
+        Пароль:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -96,7 +96,7 @@ const StudentForm = () => {
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 p-1 font-bold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-600 dark:text-slate-50 dark:hover:bg-slate-900 "
         onClick={(e) => addStudent(e)}
       >
-        Register
+        Регистрация
       </button>
       {error ? <ErrorStrip error={error} /> : ""}
     </form>

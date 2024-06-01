@@ -40,7 +40,7 @@ const StaffForm = () => {
   return (
     <form className="scrollWidth w-full animate-fadeIn font-medium tracking-wide accent-violet-600">
       <label className="block" htmlFor="name">
-        Name:
+        Ф.И.О:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-[1.5px] focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400 "
@@ -64,7 +64,7 @@ const StaffForm = () => {
         onChange={(e) => handleFormChange(e)}
       />
       <label className="block" htmlFor="department">
-        Department:
+        Кафедра:
       </label>
       <select
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-[1.5px] focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -76,18 +76,24 @@ const StaffForm = () => {
         onChange={(e) => handleFormChange(e)}
       >
         <option defaultValue hidden>
-          Select Department
+          Выбрать кафедру
         </option>
 
         <option
-          className="min-h-[2rem] bg-violet-500 font-semibold leading-8 text-slate-100"
-          value="Computer"
+          className="min-h-[2rem] bg-primary font-semibold leading-8 text-slate-100"
+          value="Школа цифровых технологий и искусственного интеллекта"
         >
-          Computer
+          Школа цифровых технологий и искусственного интеллекта
+        </option>
+        <option
+          className="min-h-[2rem] bg-primary font-semibold leading-8 text-slate-100"
+          value="Бизнес школа"
+        >
+          Бизнес школа
         </option>
       </select>
       <label className="block" htmlFor="username">
-        Username:
+        Логин:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400 "
@@ -99,7 +105,7 @@ const StaffForm = () => {
         onChange={(e) => handleFormChange(e)}
       />
       <label className="block" htmlFor="password">
-        Password:
+        Пароль:
       </label>
       <input
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400 "
@@ -115,7 +121,7 @@ const StaffForm = () => {
         className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 p-1 font-bold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-600 dark:text-slate-50 dark:hover:bg-slate-900 "
         onClick={(e) => addStaff(e)}
       >
-        Register
+        Зарегистрироваться
       </button>
       {error ? <ErrorStrip error={error} /> : ""}
     </form>

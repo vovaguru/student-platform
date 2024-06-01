@@ -7,6 +7,8 @@ import { PiStudentThin, PiUserThin, PiSpinnerGapBold } from "react-icons/pi";
 import CircleDesign from "../Layouts/CircleDesign";
 import ErrorStrip from "../ErrorStrip";
 
+const loginBtnText = "Войти";
+
 const Login = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
@@ -14,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("");
   const [error, setError] = useState("");
-  const [buttonText, setButtonText] = useState("Login");
+  const [buttonText, setButtonText] = useState("Войти");
   const [message, setMessage] = useState("");
 
   const slowLoadingIndicator = () => {
@@ -34,7 +36,7 @@ const Login = () => {
         },
       });
     } else {
-      setButtonText("Loading...");
+      setButtonText("Загрузка...");
       slowLoadingIndicator();
       try {
         const response = await axios.post("/auth/login/" + userType, {
@@ -48,7 +50,7 @@ const Login = () => {
         );
       } catch (err) {
         setError(err);
-        setButtonText("Login");
+        setButtonText("Войти");
       }
     }
   };
@@ -64,24 +66,22 @@ const Login = () => {
   return (
     <>
       {!user?._id ? (
-        <main className="relative z-0 flex h-screen flex-col items-center justify-center bg-gradient-to-b from-slate-400 to-slate-300 text-slate-950 dark:from-slate-800 dark:to-slate-950 dark:text-slate-300">
+        <main className="relative z-0 flex h-screen flex-col items-center justify-center bg-primary text-slate-950 dark:from-slate-800 dark:to-slate-950 dark:text-slate-300">
           {message && !error && (
             <header className="absolute top-0 w-full bg-violet-500/50 p-2 text-xs dark:bg-slate-700/50 lg:text-base">
               {message}
             </header>
           )}
-          <CircleDesign />
-          <section className="z-0 mb-4 flex items-center duration-200 gap-2 whitespace-nowrap text-6xl md:text-8xl lg:gap-4">
-            <FaUniversity />
-            <h1 className="font-spectral font-semibold  text-slate-900  dark:text-slate-300 ">
-              K
-              <span className="inline-block h-10 w-10 rounded-full bg-violet-900 dark:bg-violet-600 md:h-14 md:w-14 xl:h-14 xl:w-14"></span>
-              llege
+          {/* <CircleDesign /> */}
+          <section className="z-0 mb-4 flex items-center duration-200 gap-2 whitespace-nowrap text-6xl md:text-3xl lg:gap-4">
+            <FaUniversity className="text-white"/>
+            <h1 className="font-spectral font-semibold  text-white  dark:text-slate-300 ">
+              Цифровой профиль студента
             </h1>
           </section>
-          <section className="z-0 w-[65%] justify-self-center rounded-lg bg-slate-100 opacity-80 hover:opacity-100 focus:opacity-100 duration-200 dark:bg-[#060913] sm:w-[min(50%,360px)] md:w-[min(40%,360px)] xl:w-[min(23%,360px)] ">
+          <section className="z-0 w-[65%] justify-self-center rounded-lg bg-white opacity-80 hover:opacity-100 focus:opacity-100 duration-200 dark:bg-[#060913] sm:w-[min(50%,360px)] md:w-[min(40%,360px)] xl:w-[min(23%,360px)] ">
             <form
-              className="tracking-wide placeholder:text-slate-200 dark:placeholder:text-violet-200 "
+              className="tracking-wide text-primary placeholder:text-slate-200 dark:placeholder:text-violet-200 "
               onSubmit={(e) => handleLogin(e)}
             >
               <section className="flex flex-col items-center justify-start ">
@@ -90,7 +90,7 @@ const Login = () => {
                     className="radio relative flex w-1/2 cursor-pointer flex-col items-center rounded-tl-lg p-4 dark:border-l-[1.5px] dark:border-t-[1.5px]  dark:border-solid dark:border-violet-900"
                     htmlFor="staff"
                   >
-                    Staff
+                    Преподаватель
                     <input
                       className="absolute opacity-0"
                       type="radio"
@@ -104,7 +104,7 @@ const Login = () => {
                     className="radio relative flex w-1/2 cursor-pointer flex-col items-center rounded-tr-lg p-4 dark:border-r-[1.5px] dark:border-t-[1.5px] dark:border-solid dark:border-violet-900"
                     htmlFor="student"
                   >
-                    Student
+                    Студент
                     <input
                       className="absolute opacity-0"
                       type="radio"
@@ -130,7 +130,7 @@ const Login = () => {
               <>
                 <input
                   className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
-                  placeholder="username"
+                  placeholder="Логин"
                   id="username"
                   type="text"
                   required
@@ -141,7 +141,7 @@ const Login = () => {
                   />
                 <input
                   className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
-                  placeholder="password"
+                  placeholder="Пароль"
                   id="password"
                   type="password"
                   required
@@ -152,27 +152,27 @@ const Login = () => {
                 <button
                   className="mb-1 flex h-10 w-full items-center justify-center gap-1 rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 p-1 font-bold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 disabled:cursor-wait dark:border-violet-300 dark:bg-violet-600 dark:text-slate-50 dark:hover:bg-slate-900 dark:focus:bg-slate-900 lg:mb-2 "
                   type="submit"
-                  value="Login"
-                  disabled={buttonText !== "Login"}
+                  value="Вход"
+                  disabled={buttonText !== "Войти"}
                   onClick={(e) => handleLogin(e)}
                   >
-                  {!(buttonText === "Login") && (
+                  {!(buttonText === "Войти") && (
                     <PiSpinnerGapBold className="animate-spin" />
                     )}
                   {buttonText}
                 </button>
                 </>
-                : <p className="w-full bg-violet-300 dark:bg-violet-950/90 duration-200 rounded p-4 my-12 text-center">Select User Type</p>  }
+                : <p className="w-full bg-violet-300 dark:bg-violet-950/90 duration-200 rounded p-4 my-12 text-center">Выбрать тип пользователя</p>  }
                 {error ? <ErrorStrip error={error} /> : ""}
-                <p className="inline text-slate-600 dark:text-violet-200">
-                  Click to{" "}
-                </p>
+                {/* <p className="inline text-slate-600 dark:text-violet-200">
+                  Нажать{" "}
+                </p> */}
                 <button
                   type="button"
                   className="font-semibold text-violet-600 decoration-2 hover:underline focus:underline   dark:text-violet-400"
                   onClick={() => navigate("./register/reg_student")}
                   >
-                  Register
+                  Регистрация
                 </button>
               </section>
             </form>

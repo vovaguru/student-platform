@@ -113,14 +113,14 @@ const Attendance = () => {
 
   return (
     <main className="attendance">
-      <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-violet-950 underline decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
-        Attendance
+      <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
+        Посещаемость
       </h2>
       <section className="attendance__head">
-        <form className="w-full gap-4 accent-violet-900 md:flex ">
+        <form className="w-full gap-4 accent-primary md:flex ">
           <div className="flex w-full flex-col">
             <label className="m-1" htmlFor="paper">
-              Select Paper
+              Выберите занятие
             </label>
             <select
               className="mb-4 block h-10  rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400 "
@@ -142,7 +142,7 @@ const Attendance = () => {
           </div>
           <div className="flex w-full flex-col">
             <label className="m-1" htmlFor="date">
-              Select Date
+              Выберите дату
             </label>
             <input
               className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
@@ -155,7 +155,7 @@ const Attendance = () => {
           </div>
           <div className="flex w-full flex-col">
             <label className="m-1" htmlFor="hour">
-              Select Hour
+              Выберите час
             </label>
 
             <select
@@ -182,7 +182,7 @@ const Attendance = () => {
               type="submit"
               onClick={(e) => fetchAttendance(e)}
             >
-              Fetch
+              Загрузить
             </button>
           </div>
         </form>
@@ -191,7 +191,7 @@ const Attendance = () => {
       <section className="attendance__form">
         <form className="w-full">
           {attendance?.length ? (
-            <div className="my-4 w-full rounded-md border-2 border-slate-900 dark:border-slate-500 dark:p-[1px] lg:w-1/2">
+            <div className="my-4 w-full rounded-md border-2 border-primary dark:border-slate-500 dark:p-[1px] lg:w-1/2">
               <table className="w-full">
                 <TableHeader Headers={["Present", "Student"]} />
                 <tbody>
@@ -214,14 +214,14 @@ const Attendance = () => {
             <div className="flex gap-4">
               <button
                 type="submit"
-                className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-slate-900"
+                className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-primary bg-primary px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-violet-900 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-slate-900"
                 onClick={(e) => setDisabled(false)}
               >
                 <FaEdit /> Edit
               </button>
               <button
                 type="submit"
-                className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900 bg-slate-800 px-4 py-2 font-semibold tracking-wide text-slate-200 hover:bg-red-700 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-red-700"
+                className="mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-primary bg-primary px-4 py-2 font-semibold tracking-wide text-slate-200 hover:bg-red-700 focus:bg-violet-900 dark:border-violet-300 dark:bg-violet-900 dark:text-violet-100 dark:hover:bg-red-700"
                 onClick={(e) => deleteAttendance(e)}
               >
                 <FaTrash /> Delete

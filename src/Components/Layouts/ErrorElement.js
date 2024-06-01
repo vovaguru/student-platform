@@ -17,7 +17,7 @@ const ErrorElement = () => {
           <h2 className="text-6xl font-bold text-violet-950 dark:text-slate-400">
             Oops!
           </h2>
-          <p>Sorry, an unexpected error has occurred.</p>
+          <p>Извините, возникла ошибка. Обратитесь к администратору</p>
           <p>
             <i>{error.statusText || error.message}</i>
           </p>
