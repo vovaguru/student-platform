@@ -75,6 +75,22 @@ const PaperForm = () => {
               required
               onChange={(e) => handleFormChange(e)}
             />
+            <label htmlFor="category">Категория:</label>
+            <select
+              className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"
+              id="category"
+              value={newPaper.category}
+              required
+              onChange={(e) => handleFormChange(e)}
+            >
+              <option defaultValue hidden>
+                Выбрать категорию
+              </option>
+              <option value="cloud">Облачные технологии</option>
+              <option value="web">Веб-технологие</option>
+              <option value="mobile">Мобильная разработка</option>
+              <option value="bigdata">Большие данные</option>
+            </select>
             <label htmlFor="semester">Семестр:</label>
             <select
               className="mb-4 block h-10 w-full rounded-md border-[1.5px] border-solid border-slate-400 p-1 pl-2 outline-none selection:border-slate-200 focus:border-violet-900 dark:border-slate-200 dark:caret-inherit dark:focus:border-violet-400 dark:active:border-violet-400"

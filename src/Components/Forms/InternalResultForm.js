@@ -92,10 +92,17 @@ const InternalResultForm = () => {
     // the whole thing is a convoluted mess, but it works.
     // if you have an alternative, DM ;).
     const index = parseInt(e.target.id);
-    const value = e.target.value;
+    const value = parseInt(e.target.value);
     const key = e.target.name;
     const newStudent = internal[index];
+    //console.log(newStudent);
+    newStudent["total"] = Math.round((parseInt(newStudent?.test) +
+      parseInt(newStudent?.seminar) +
+      parseInt(newStudent?.assignment) +
+      parseInt(newStudent?.attendance)) / 4)
     newStudent[key] = value;
+
+
     const newInternal = internal.map((student, index) => {
       if (index === e.target.id) {
         return newStudent;
@@ -142,7 +149,7 @@ const InternalResultForm = () => {
       <section className="internal__body">
         <form className="internal__body__form group">
           {internal.length ? (
-            
+
             <div className="my-4 w-full overflow-auto rounded-md border-2 border-slate-900 dark:border-slate-500 dark:p-[1px]">
               <table className="w-full">
                 <TableHeader
@@ -166,7 +173,7 @@ const InternalResultForm = () => {
                           parseInt(student?.seminar) +
                           parseInt(student?.assignment) +
                           parseInt(student?.attendance) >
-                        12
+                          12
                           ? "border-t-[1px] border-slate-400 bg-violet-900/50 first:border-none"
                           : "border-t-[1px] border-slate-400 first:border-none"
                       }
@@ -239,12 +246,10 @@ const InternalResultForm = () => {
                           id={index}
                           name="total"
                           value={
-                            (parseInt(student?.test) +
-                            parseInt(student?.seminar) +
-                            parseInt(student?.assignment) +
-                            parseInt(student?.attendance)) / 4
+                            student.total
                           }
-                          onChange={(e) => handleFormChange(e)}
+                          onChange={(e) => { handleFormChange(e); console.log("changed"); }}
+
                         />
                       </td>
                     </tr>

@@ -6,10 +6,14 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Loading from "../Layouts/Loading";
 import ErrorStrip from "../ErrorStrip";
+import { useNavigate } from "react-router-dom";
+
 
 const Notes = () => {
   const { paper, notes, setNotes, user } = useContext(UserContext);
   const [error, setError] = useState("");
+  const [liked, setLiked] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getNotes = async () => {
@@ -21,6 +25,8 @@ const Notes = () => {
       }
     };
     getNotes();
+    const liked = paper.likedBy.some(id => id === user._id);
+    setLiked(liked);
     return () => setNotes([]);
   }, [paper, setNotes]);
 
@@ -34,11 +40,33 @@ const Notes = () => {
     });
   };
 
+  const addLike = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.patch(`paper/${paper._id}/${user._id}`, {
+        likedBy: paper.likedBy?.includes(user._id) 
+        ? paper.likedBy?.filter((id) => id !== user._id) 
+        : [...paper.likedBy, user._id],
+      });
+      navigate(0, { replace: true });
+      setError("");
+      toast.success(response.data.message);
+    } catch (err) {
+      setError(err);
+    }
+  };
+
   return (
     <main>
       <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
         {paper.paper}
       </h2>
+      <div>
+        <button className={`${liked ? "bg-slate-800 text-white" : "bg-white text-black"} mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900  px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-violet-900`}
+          onClick={addLike}>
+          {liked ? "Убрать ❤️" : "Поставить ❤️"}
+        </button>
+      </div>
       <ul className="grid grid-cols-1 font-semibold sm:grid-cols-2 lg:flex lg:items-center lg:justify-start lg:gap-16">
         <li className="p-1">Год : {paper.year}</li>
         <li className="p-1">Семестр : {paper.semester}</li>

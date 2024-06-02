@@ -54,10 +54,7 @@ const InternalStudent = () => {
                   <td className="p-2 text-center">{paper.marks.assignment}</td>
                   <td className="p-2 text-center">{paper.marks.attendance}</td>
                   <td className="p-2 text-center">
-                    {(paper.marks.test +
-                      paper.marks.seminar +
-                      paper.marks.assignment +
-                      paper.marks.attendance) / 4}
+                    {paper.marks.total}
                   </td>
                 </tr>
               ))}
