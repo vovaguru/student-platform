@@ -22,7 +22,6 @@ const Profile = () => {
   const [profile, setProfile] = React.useState({});
   const [studentInfo, setStudentInfo] = React.useState({});
   const [error, setError] = React.useState("");
-  const navigate = useNavigate();
 
   const getProfile = async () => {
     const response = await axios.get(`${user.userType}/${user._id}`);
@@ -61,15 +60,15 @@ const Profile = () => {
   };
 
   return (
-    <main className="flex w-full flex-col justify-center md:w-fit">
+    <main className="flex w-full flex-col justify-center md:w-fit container mx-auto">
       {profile.name ? (
         <>
           <div className=" my-4 flex w-full justify-center overflow-auto dark:border-slate-500 dark:p-[1px]">
-            {user.userType === "staff" ? (
+            {/* {user.userType === "staff" ? (
               <PiUserThin className="m-2 rounded-full border-2 border-slate-900 p-1 text-6xl dark:border-slate-300 md:p-2 md:text-9xl lg:text-[12rem]" />
             ) : (
               <PiStudentThin className="m-2 rounded-full border-2 border-slate-900 p-1 text-6xl font-light dark:border-slate-300 md:p-2 md:text-9xl lg:text-[12rem]" />
-            )}
+            )} */}
             <div className="flex flex-col items-start justify-center">
               <h2 className=" whitespace-break-spaces text-3xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
                 {user?.name}
@@ -79,30 +78,34 @@ const Profile = () => {
               </p>
             </div>
           </div>
-          <div className=" w-full overflow-auto rounded-md border-2 border-slate-900 dark:border-slate-500 dark:p-[1px]">
+          <div className=" w-full text-left overflow-auto rounded-md dark:border-slate-500 dark:p-[1px]">
             <table className="w-full ">
               <tbody>
                 {Object.keys(profile).map((key, index) => (
-                  <tr
-                    key={index}
-                    className="border-t first:border-t-0 border-slate-400 last:border-b-0 "
-                  >
-                    <th className="bg-slate-900 p-4 text-base capitalize text-slate-100">
-                      {keys[key]}
-                    </th>
-                    <td className="px-4 py-2">{
-                      ["achievements", "publications"].includes(key) ?
-                        (
-                          profile[key].split(",").map((item, index) => (
-                            <li key={index}>{item}</li>
-                          ))
-                        ) : profile[key]
-                    }</td>
-                  </tr>
+                  key === "achievements" || key === "publications" ? null : (
+
+                    <tr
+                      key={index}
+                      className="border-t first:border-t-0 border-slate-400 last:border-b-0 "
+                    >
+                      <th className="bg-slate-900 p-4 text-base capitalize text-slate-100">
+                        {keys[key]}
+                      </th>
+                      <td className="px-4 py-2">{
+                        ["achievements", "publications"].includes(key) ?
+                          (
+                            ""
+                            // profile[key].split(",").map((item, index) => (
+                            //   <li key={index}>{item}</li>
+                            // ))
+                          ) : profile[key]
+                      }</td>
+                    </tr>
+                  )
                 ))}
               </tbody>
             </table>
-            {user.role === "student" && (
+            {/* {user.role === "student" && (
               <form className="p-5">
                 <label htmlFor="achievements">Достижения:</label>
                 <input
@@ -130,7 +133,9 @@ const Profile = () => {
                   Сохранить
                 </button>
               </form>
-            )}
+            )} */}
+            
+            
           </div>
         </>
       ) : (

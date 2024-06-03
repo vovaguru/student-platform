@@ -66,20 +66,20 @@ const Login = () => {
   return (
     <>
       {!user?._id ? (
-        <main className="relative z-0 flex h-screen flex-col items-center justify-center bg-primary text-slate-950 dark:from-slate-800 dark:to-slate-950 dark:text-slate-300">
+        <main className="relative z-0 flex h-screen flex-col items-center justify-center  text-slate-950 dark:from-slate-800 dark:to-slate-950 dark:text-slate-300">
           {message && !error && (
             <header className="absolute top-0 w-full bg-violet-500/50 p-2 text-xs dark:bg-slate-700/50 lg:text-base">
               {message}
             </header>
           )}
-          {/* <CircleDesign /> */}
+          {/* <CircleDesign />
           <section className="z-0 mb-4 flex items-center duration-200 gap-2 whitespace-nowrap text-6xl md:text-3xl lg:gap-4">
             <FaUniversity className="text-white"/>
             <h1 className="font-spectral font-semibold  text-white  dark:text-slate-300 ">
               Цифровой профиль студента
             </h1>
-          </section>
-          <section className="z-0 w-[65%] justify-self-center rounded-lg bg-white opacity-80 hover:opacity-100 focus:opacity-100 duration-200 dark:bg-[#060913] sm:w-[min(50%,360px)] md:w-[min(40%,360px)] xl:w-[min(23%,360px)] ">
+          </section> */}
+          <section className="z-0 w-[65%] justify-self-center bg-white opacity-80 hover:opacity-100 focus:opacity-100 duration-200 dark:bg-[#060913] sm:w-[min(50%,360px)] md:w-[min(40%,360px)] xl:w-[min(23%,360px)] ">
             <form
               className="tracking-wide text-primary placeholder:text-slate-200 dark:placeholder:text-violet-200 "
               onSubmit={(e) => handleLogin(e)}
@@ -115,7 +115,7 @@ const Login = () => {
                     />
                   </label>
                 </div>
-                <div className="flex duration-200 w-full justify-center p-1 pt-0 text-8xl dark:border-x-[1.5px] dark:border-solid dark:border-violet-900 md:p-3 md:pt-0">
+                {/* <div className="flex duration-200 w-full justify-center p-1 pt-0 text-8xl dark:border-x-[1.5px] dark:border-solid dark:border-violet-900 md:p-3 md:pt-0">
                   {userType === "student" ? (
                     <PiStudentThin className="animate-slide rounded-full border-2 border-slate-900 p-1 font-light dark:border-slate-300 md:p-2" />
                     ) : userType === "staff" ? (
@@ -123,7 +123,7 @@ const Login = () => {
                       ) : (
                         <FaUniversity className="animate-fadeIn rounded-lg border-2 border-slate-900 p-1 font-light dark:border-slate-300 md:p-2" />
                         )}
-                </div>
+                </div> */}
               </section>
               <section className="rounded-b-lg px-4 pb-4 dark:border-x-[1.5px] dark:border-b-[1.5px] dark:border-solid dark:border-violet-900">
               {userType?
@@ -169,7 +169,7 @@ const Login = () => {
                 </p> */}
                 <button
                   type="button"
-                  className="font-semibold text-violet-600 decoration-2 hover:underline focus:underline   dark:text-violet-400"
+                  className="font-semibold text-primary decoration-2 hover:underline focus:underline   dark:text-violet-400"
                   onClick={() => navigate("./register/reg_student")}
                   >
                   Регистрация

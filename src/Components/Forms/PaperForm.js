@@ -87,7 +87,7 @@ const PaperForm = () => {
                 Выбрать категорию
               </option>
               <option value="cloud">Облачные технологии</option>
-              <option value="web">Веб-технологие</option>
+              <option value="web">Веб-технологии</option>
               <option value="mobile">Мобильная разработка</option>
               <option value="bigdata">Большие данные</option>
             </select>

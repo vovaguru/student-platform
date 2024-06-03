@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "#005857",
+        "primary": "#0098ea",
       },
       keyframes: {
         slide: {
