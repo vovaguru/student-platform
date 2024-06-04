@@ -162,14 +162,14 @@ const Login = () => {
                   {buttonText}
                 </button>
                 </>
-                : <p className="w-full bg-violet-300 dark:bg-violet-950/90 duration-200 rounded p-4 my-12 text-center">Выбрать тип пользователя</p>  }
+                : <p className="w-full bg-primary/40 dark:bg-violet-950/90 duration-200 rounded p-4 my-12 text-center">Выбрать тип пользователя</p>  }
                 {error ? <ErrorStrip error={error} /> : ""}
                 {/* <p className="inline text-slate-600 dark:text-violet-200">
                   Нажать{" "}
                 </p> */}
                 <button
                   type="button"
-                  className="font-semibold text-violet-600 decoration-2 hover:underline focus:underline   dark:text-violet-400"
+                  className="font-semibold text-primary decoration-2 hover:underline focus:underline   dark:text-violet-400"
                   onClick={() => navigate("./register/reg_student")}
                   >
                   Регистрация

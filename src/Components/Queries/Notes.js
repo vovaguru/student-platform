@@ -61,12 +61,12 @@ const Notes = () => {
       <h2 className="mb-2 mt-3 whitespace-break-spaces text-4xl font-bold text-primary decoration-inherit decoration-2 underline-offset-4 dark:mt-0 dark:text-slate-400 md:text-6xl">
         {paper.paper}
       </h2>
-      <div>
+      {/* <div>
         <button className={`${liked ? "bg-slate-800 text-white" : "bg-white text-black"} mb-4 flex h-10 w-auto items-center gap-2 rounded-md border-[1.5px] border-solid border-violet-900  px-6 py-2 font-semibold tracking-wide text-slate-200 hover:bg-violet-900`}
           onClick={addLike}>
           {liked ? "Убрать ❤️" : "Поставить ❤️"}
         </button>
-      </div>
+      </div> */}
       <ul className="grid grid-cols-1 font-semibold sm:grid-cols-2 lg:flex lg:items-center lg:justify-start lg:gap-16">
         <li className="p-1">Год : {paper.year}</li>
         <li className="p-1">Семестр : {paper.semester}</li>
