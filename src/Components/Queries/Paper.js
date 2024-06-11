@@ -6,7 +6,6 @@ import axios from "../../config/api/axios";
 
 const Paper = () => {
   const { setPaper, paperList, user } = useContext(UserContext);
-
   const [papers, setPapers] = useState([]);
   const [recommends, setRecommends] = useState([]);
   const [recommendsByInternal, setRecommendsByInternal] = useState([]);
@@ -16,10 +15,8 @@ const Paper = () => {
     const fetchInternal = async () => {
       const response = await axios.get("/internal/student/" + user._id)
         .then(res => setInternal(res.data));
-
     };
     fetchInternal();
-    console.log(internal);
   }, [user]);
 
   useEffect(() => {
@@ -44,7 +41,6 @@ const Paper = () => {
             setRecommendsByInternal(res.data
               .filter(paper => categories.includes(paper.category))
               .filter(paper => paperList.map(paper => paper.paper).includes(paper.paper) === false))
-
         });
     };
     getallPapers();

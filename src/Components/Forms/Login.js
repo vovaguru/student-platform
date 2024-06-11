@@ -66,7 +66,7 @@ const Login = () => {
   return (
     <>
       {!user?._id ? (
-        <main className="relative z-0 flex h-screen flex-col items-center justify-center  text-slate-950 dark:from-slate-800 dark:to-slate-950 dark:text-slate-300">
+        <main className="relative z-0 flex h-screen flex-col items-center justify-center bg-primary  text-slate-950 dark:from-slate-800 dark:to-slate-950 dark:text-slate-300">
           {message && !error && (
             <header className="absolute top-0 w-full bg-violet-500/50 p-2 text-xs dark:bg-slate-700/50 lg:text-base">
               {message}
